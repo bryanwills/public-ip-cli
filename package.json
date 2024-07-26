@@ -4,6 +4,7 @@
 	"description": "Get your public IP address",
 	"license": "MIT",
 	"repository": "sindresorhus/public-ip-cli",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
@@ -11,10 +12,10 @@
 	},
 	"type": "module",
 	"bin": {
-		"public-ip": "cli.js"
+		"public-ip": "./cli.js"
 	},
 	"engines": {
-		"node": "^14.13.1 || >=16.0.0"
+		"node": ">=18"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -38,13 +39,13 @@
 		"dns"
 	],
 	"dependencies": {
-		"meow": "^10.1.2",
-		"public-ip": "^5.0.0"
+		"meow": "^13.2.0",
+		"public-ip": "^7.0.0"
 	},
 	"devDependencies": {
-		"ava": "^3.15.0",
-		"execa": "^6.0.0",
-		"is-ip": "^3.1.0",
-		"xo": "^0.47.0"
+		"ava": "^6.1.3",
+		"execa": "^9.3.0",
+		"is-ip": "^5.0.1",
+		"xo": "^0.59.2"
 	}
 }

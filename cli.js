@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import meow from 'meow';
-import publicIp from 'public-ip';
+import {publicIpv4, publicIpv6} from 'public-ip';
 
 const cli = meow(`
 	Usage
@@ -20,26 +20,28 @@ const cli = meow(`
 	flags: {
 		ipv4: {
 			type: 'boolean',
-			alias: '4',
+			shortFlag: '4',
 		},
 		ipv6: {
 			type: 'boolean',
-			alias: '6',
+			shortFlag: '6',
 		},
 		https: {
 			type: 'boolean',
-			alias: 'h',
+			shortFlag: 'h',
 		},
 		timeout: {
 			type: 'string',
-			alias: 't',
+			shortFlag: 't',
 		},
 	},
 });
 
-const ip = await publicIp[cli.flags.ipv6 ? 'v6' : 'v4']({
+const getIp = cli.flags.ipv6 ? publicIpv6 : publicIpv4;
+
+const ip = await getIp({
 	https: cli.flags.https ? true : undefined,
-	timeout: typeof cli.flags.timeout !== 'undefined' && Number(cli.flags.timeout),
+	timeout: cli.flags.timeout !== undefined && Number(cli.flags.timeout),
 });
 
 console.log(ip);

@@ -5,7 +5,7 @@
 ## Install
 
 ```sh
-$ npm install --global public-ip-cli
+npm install --global public-ip-cli
 ```
 
 ## Usage
@@ -36,10 +36,6 @@ user    0.05s
 sys     0.02s
 ```
 
-## Maintainers
-
-- [silverwind](https://github.com/silverwind)
-
 ## Related
 
-- [public-ip](https://github.com/sindresorhus/public-ip) - API for this module
+- [public-ip](https://github.com/sindresorhus/public-ip) - API for this package
