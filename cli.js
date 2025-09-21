@@ -31,7 +31,7 @@ const cli = meow(`
 			shortFlag: 'h',
 		},
 		timeout: {
-			type: 'string',
+			type: 'number',
 			shortFlag: 't',
 		},
 	},
@@ -41,7 +41,7 @@ const getIp = cli.flags.ipv6 ? publicIpv6 : publicIpv4;
 
 const ip = await getIp({
 	https: cli.flags.https ? true : undefined,
-	timeout: cli.flags.timeout !== undefined && Number(cli.flags.timeout),
+	timeout: cli.flags.timeout,
 });
 
 console.log(ip);
